@@ -24,6 +24,8 @@ type typeData = {
 export const CovidData = () => {
     useEffect(() => {
         fetchData()
+        console.log("Using useEffect");
+        
     }, []);
 
     const [date, setdate] = useState<typeDate>({ date: "2020-02-05" });
