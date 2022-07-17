@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Row, Col } from 'react-bootstrap';
 import { NewsItem } from './NewsItem';
+import Spinner from 'react-bootstrap/Spinner';
 
 
 type dataType = {
@@ -71,7 +72,11 @@ export const NewsAPI = () => {
                 <NewsItem title={element.title} content={element.content} imageUrl={element.imageUrl} readMoreUrl={element.readMoreUrl} author={element.author} time={element.time} />
               </Col>)
           })
-          : "Fetching data"}
+          : (
+            <Col className='md-4'>
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner></Col>)}
       </Row>
     </>
   )
